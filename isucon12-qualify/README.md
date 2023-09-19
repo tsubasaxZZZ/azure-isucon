@@ -2,7 +2,8 @@
 
 ## はじめに
 
-このディレクトリ以下の構成やファイルは以下のリポジトリを参考にさせて頂き作成しました。`privision.sh` に関してはそのまま利用させて頂いています。
+このディレクトリ以下の構成やファイルは以下のリポジトリを参考にさせて頂き作成しました。  
+`privision.sh` に関してはそのまま利用させて頂いています。  
 https://github.com/matsuu/aws-isucon/tree/main/isucon12-qualify
 
 ## Build
