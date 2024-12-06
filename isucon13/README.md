@@ -17,11 +17,16 @@ Azure Compute Gallery を作成し、VM image definition(VM イメージ定義) 
 
 ### 2. Packer の実行
 
-#### 2.1. サービスプリンシパルの作成
+#### 2.1. サービスプリンシパルの作成と RBAC の割り当て
 
 ```sh
 az ad sp create-for-rbac -o json --name example-isucon > principal.json
 ```
+
+サービスプリンシパルの作成後、共同作成者としてサブスクリプションに割り当てます。
+
+> [!CAUTION]
+> 最小特権を考えるとサブスクリプション全体に共同作成者の権限を割り当てることはお勧めされないので必要に応じて適切な権限を設定してください。
 
 #### 2.2. 設定ファイルの作成
 
@@ -30,7 +35,7 @@ az ad sp create-for-rbac -o json --name example-isucon > principal.json
 特に、Azure Compute Gallery の部分は以下を参考にしてください。
 ```
 gallery_name = "sigforisucon"       # Azure Compute Gallery の名前
-image_name = "isucon-13"            # VM image definition の名前
+image_name = "isucon-13-prd"        # VM image definition の名前
 image_version = "0.0.1"             # 作成したいバージョン
 replication_regions = ["japaneast"] # レプリケーション先のリージョン
 resource_group = "rg-isucon"        # Azure Compute Gallery のリソースグループ
